@@ -6,8 +6,7 @@ pipeline {
         docker { image 'maven:3.8.1-adoptopenjdk-11' }
       }
       steps {
-	sh 'cd hello-world'
-        sh 'mvn clean install'
+	sh 'cd hello-world && mvn clean install'
       }
     }
     stage('Install dependencies') {
@@ -17,7 +16,7 @@ pipeline {
       steps {
 	script {
 		// Install npm packages
-        	sh 'node install'
+        	sh 'npm install'
       		}
     	}
     }
